@@ -15,6 +15,7 @@ class UserOrderController extends Controller
      */
     public function store(OrderRequest $request)
     {
+
         $order = Order::create(['user_id' =>auth()->id()]);
 
         return OrderProduct::create(array_merge($request->validated(),['order_id'=>$order->id])) ?

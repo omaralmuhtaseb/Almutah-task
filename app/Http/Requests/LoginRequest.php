@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class OrderRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +21,6 @@ class OrderRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json(['error' => $validator->errors()], 422));
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -31,8 +29,8 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_id'=>'required|integer|exists:products,id',
-            'quantity'=>'required|integer',
+            'email' => 'required|string|email',
+            'password' => 'required|min:8'
         ];
     }
 }

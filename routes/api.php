@@ -30,4 +30,4 @@ Route::post('logout',[AuthController::class,'logout'])->middleware('auth:sanctum
 Route::get('products',[ProductController::class,'index']);
 
 //---------------Orders-----------------
-Route::post('order',[UserOrderController::class,'store']);
+Route::post('user-order',[UserOrderController::class,'store'])->middleware('auth:sanctum');
