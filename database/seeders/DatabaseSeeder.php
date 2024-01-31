@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Factories\UserFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +19,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\Order::factory(10)->create();
          \App\Models\Product::factory(10)->create();
          \App\Models\OrderProduct::factory(10)->create();
+
+         $this->call(AdminSeeder::class);
     }
 }

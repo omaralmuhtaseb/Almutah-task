@@ -16,8 +16,10 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
+        $statuses = ['pending','cancelled','delivered'];
         return [
             'user_id' => \App\Models\User::factory(),
+            'status' => $this->faker->randomElement($statuses),
         ];
     }
 }

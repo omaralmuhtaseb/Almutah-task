@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -19,15 +19,14 @@ use App\Http\Controllers\UserOrderController;
 */
 
 
-
 //---------------Auth -----------------
-Route::post('register',[AuthController::class,'register']);
-Route::post('login',[AuthController::class,'login']);
-Route::post('logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 
 //---------------Products-----------------
-Route::get('products',[ProductController::class,'index']);
+Route::get('products', [ProductController::class, 'index']);
 
 //---------------Orders-----------------
-Route::post('user-order',[UserOrderController::class,'store'])->middleware('auth:sanctum');
+Route::post('order', [OrderController::class, 'store'])->middleware('auth:sanctum');
