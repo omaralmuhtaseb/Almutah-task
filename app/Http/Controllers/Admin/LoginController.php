@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -12,11 +12,9 @@ class LoginController extends Controller
         return view('admin.login');
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (auth('admin')->attempt($credentials)) {
+        if (auth('admin')->attempt($request->only('email', 'password'))) {
             return redirect()->intended('/admin');
         }
         return redirect()->route('admin.login')->withErrors(['error' => 'Invalid credentials']);

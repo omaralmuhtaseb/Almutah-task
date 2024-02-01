@@ -1,23 +1,25 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">{{ config('app.name', 'Almutah') }}</a>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{{ route('admin.index') }}">{{ config('app.name', 'Almutah') }}</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            @auth('admin')
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.orders.index') }}">Orders</a></li>
+                </ul>
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <form action="{{ route('admin.logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-dark logout-btn">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            @endauth
         </div>
-
-        @auth('admin')
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ route('admin.index') }}">Home</a></li>
-                <li><a href="{{ route('admin.orders.index') }}">Orders</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form action="{{ route('admin.logout') }}" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-link">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        @endauth
     </div>
 </nav>

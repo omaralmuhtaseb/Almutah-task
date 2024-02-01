@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    font-family: "Rage Italic";
+}
+
+.navbar {
+    background-color: #3498db;
+    border: none;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 24px;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 16px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ecf0f1;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+
+.navbar-nav {
+    margin-right: auto;
+}
+
+.navbar-right {
+    margin-left: auto;
+}
+
+.logout-btn {
+    float: right;
+}
