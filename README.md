@@ -47,3 +47,7 @@ Use these credentials to login to the dashboard :
 Email :admin@almutah.com
 Password : password
 
+To use the Api's , please import the postman collection , 
+Register using register Api , and login 
+Use create new order , products list Api's
+
