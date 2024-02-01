@@ -15,7 +15,7 @@
                     <li class="nav-item">
                         <form action="{{ route('admin.logout') }}" method="post">
                             @csrf
-                            <button type="submit" class="btn btn-outline-dark logout-btn">Logout</button>
+                            <button type="submit" class="btn btn-danger logout-btn">Logout</button>
                         </form>
                     </li>
                 </ul>

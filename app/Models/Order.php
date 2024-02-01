@@ -10,6 +10,7 @@ class Order extends Model
     use HasFactory;
     protected $fillable = ['user_id', 'status'];
 
+    //------------Relations----------------
     public function User()
     {
         return $this->belongsTo(User::class);
@@ -19,4 +20,21 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'order_products');
     }
+
+    //------------Methods----------------
+
+    public function getStatusBadgeAttribute()
+    {
+        switch ($this->status) {
+            case 'pending':
+                return 'warning';
+            case 'cancelled':
+                return 'danger';
+            case 'delivered':
+                return 'success';
+            default:
+                return 'primary';
+        }
+    }
+
 }

@@ -28,7 +28,6 @@
             <tr>
                 <th>#</th>
                 <th>Username</th>
-                <th>Ordered Products Count</th>
                 <th>Status</th>
                 <th>Created At</th>
             </tr>
@@ -38,8 +37,9 @@
                 <tr>
                     <td>{{$order->id}}</td>
                     <td>{{$order->User->name}}</td>
-                    <td>{{$order->Products()->count()}}</td>
-                    <td>{{$order->status}}</td>
+                    <td>
+                        <span class="badge badge-{{$order->status_badge }}">{{ ucfirst($order->status) }}</span>
+                    </td>
                     <td>{{$order->created_at->diffForHumans()}}</td>
                 </tr>
             @endforeach

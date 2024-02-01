@@ -10,11 +10,12 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::with(['User', 'Products'])
+        $orders = Order::with(['User'])
             ->when(request('filter'), function ($q) {
                 $q->where('status', request('filter'));
             })
             ->paginate(10);
+
         return view('admin.orders.index', compact('orders'));
     }
 }
